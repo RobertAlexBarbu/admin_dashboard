@@ -1,0 +1,22 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+.container {
+    height: inherit;
+    display: grid;
+    grid-template: minmax(120px, 180px) minmax(400px, 1fr) /minmax(160px, 220px) minmax(500px, 1fr);
+}
+.sidebar {
+    grid-row: 1/-1;
+    background-color: red;
+}
+.header {
+    grid-column: 2;
+    background-color: blue;
+}
+.main-content {
+    grid-column: 2;
+    grid-row: 2;
+    background-color: rosybrown;
+}
