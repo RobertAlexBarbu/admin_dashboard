@@ -1,23 +1,35 @@
+@font-face {
+    font-family: calibri;
+    src: url(./calibri-regular.ttf);
+}
+:root {
+    --color1 : #059669;
+    --color2:  #c0e0d3;
+    --color3: white;
+}
 html, body {
     margin: 0;
     height: 100%;
-    font-family: arial;
+    font-family: calibri;
     color: white;
 }
 .container {
     height: inherit;
     display: grid;
-    grid-template: minmax(120px, 180px) minmax(400px, 1fr) /minmax(160px, 250px) minmax(500px, 1fr);
+    grid-template: minmax(120px, 180px) minmax(300px, 1fr) /minmax(160px, 250px) minmax(500px, 1fr);
 }
 /* SIDEBAR START */
 .sidebar {
     grid-row: 1/-1;
-    background-color: #16a34a;
+    background-color: #059669;
     display: grid;
     grid-template-rows: repeat(3, auto);
     row-gap: 50px;
     align-content: start;
     padding: 20px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 1px 0 10px 1px black;
 }
 .logo {
     display: grid;
@@ -43,6 +55,9 @@ html, body {
     align-items: center;
     gap: 20px;
 }
+.options svg ,.settings svg {
+    width: 20px;
+}
 .options > div > span, .settings span {
     font-size: 1.1rem;
     font-weight: bold
@@ -53,12 +68,121 @@ html, body {
     font-size: 1.2rem;
 }
 /* SIDEBAR END */
+/* HEADER START */
 .header {
     grid-column: 2;
-    background-color: #fafafa;
+    background-color: var(--color3);
+    display: grid;
+    grid-template-rows: auto 3auto;
+    color: black;
+    padding-top: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 5px;
+    box-shadow: 1px 0 10px 1px black;
+    position: relative;
+    z-index: 1;
 }
+.header .row1 {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.header .row1 .part1 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.header .row1 .part2 {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+    
+}
+.header svg {
+    width: 25px;
+}
+.header .row1 img {
+    width: 40px;
+    height: auto;
+    border-radius: 50px;
+}
+.header form {
+    flex: 3;
+    max-width: 500px;
+    height: 30px;
+}
+.header #searchbar {
+    width: 100%;
+    appearance: none;
+    height: 100%;
+    border-radius: 15px;
+    background-color: var(--color2);
+    border: 0;
+    padding: 8px;
+    font-size: 1rem;
+}
+#searchbar:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color1);
+}
+.header .empty {
+    flex: 1;
+}
+.header .row2 img{
+    width: 80px;
+    border-radius: 50px;
+}
+.header .row2 {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    column-gap: 50px;
+}
+.row2 .text div {
+    font-weight: bold;
+}
+.row2 .text div:last-child {
+    font-size: 1.5rem;
+}
+.header .row2 .part1 {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+.header button {
+    border: 2px solid var(--color1);
+    width: 100px;
+    height: 40px;
+    background-color: var(--color1);
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.header button:hover {
+    background-color: white;
+    color: var(--color1);
+}
+.header .row2 .part2 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    align-content: center;
+}
+.header label {
+    height: 25px;
+    cursor: pointer;
+}
+
+
+/* HEADER END */
 .main-content {
     grid-column: 2;
     grid-row: 2;
-    background-color: #d4d4d4;
+    background-color: var(--color2);
+
 }
+
